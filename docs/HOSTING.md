@@ -12,7 +12,7 @@ You need Windows, about 4 GB of free RAM for the server, and the mod jar from th
    run the setup script. Use a separate destination for the running server.
 
    ```powershell
-   powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server -ModJar voidhome-3.3.1.jar
+   powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server -ModJar voidhome-3.3.2.jar
    ```
 
    - `-Include appleskin,jade,shulkerboxtooltip` adds server data for the included client information mods. Choose any of those names, or `all`.

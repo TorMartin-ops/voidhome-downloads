@@ -35,7 +35,7 @@
     Only print what would happen. Nothing is downloaded or written.
 
 .EXAMPLE
-    powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server -ModJar build\libs\voidhome-3.3.1.jar -AcceptEula
+    powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server -ModJar build\libs\voidhome-3.3.2.jar -AcceptEula
 #>
 [CmdletBinding()]
 param(
