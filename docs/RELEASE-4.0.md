@@ -2,6 +2,8 @@
 
 Voidhome 4.0 "Places": progress you can see on the island and in the void, people who live there, lore you find in blocks, and a late game that changes the world.
 
+**[Watch the 4.0 trailer](https://www.youtube.com/watch?v=Ck0TTUJGIqo)**
+
 ## New
 - **The Drowned Hall.** A ruined hall near your island. Restore its rooms with bundles of crops, fish, honey, trophies, flowers, sherds and records at each room's Hall Ledger. A finished room is mended overnight and changes the world: a lit dock, a forge corner, guest rooms, a waymark, an Islet Core, the Codex wall
 - **Visitors who stay.** They move into homes you build. Favourite biomes, gifts they love and hate, scenes, charters, and each visitor's own look and sounds

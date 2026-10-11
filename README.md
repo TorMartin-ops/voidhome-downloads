@@ -9,6 +9,8 @@ older versions keep working.
 I made it to play with two friends, so it is balanced for 2 or 3 players. Solo
 works, it is just slower.
 
+[![Voidhome 4.0 trailer](https://i.ytimg.com/vi/Ck0TTUJGIqo/maxresdefault.jpg)](https://www.youtube.com/watch?v=Ck0TTUJGIqo)
+
 **[Download the latest release](https://github.com/TorMartin-ops/voidhome-downloads/releases/latest)** |
 **[Report a bug or give feedback](https://github.com/TorMartin-ops/voidhome-downloads/issues/new/choose)**
 
