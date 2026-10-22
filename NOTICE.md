@@ -23,13 +23,14 @@ downloads; the pack license does not replace the companions' licenses.
 
 ## Third-party audio
 
-The voices are made with an AI text-to-speech service from the game's own text and are processed with tools/voice/echo_fx.py. These recordings are used as impulse responses (a room's sound, convolved with the voice while it is processed); they are tool inputs kept in tools/voice/ir and are not part of the game files.
+The voices are made with an AI text-to-speech service from the game's own text and are processed with tools/voice/echo_fx.py. The rooms the voices are processed in (impulse responses, tools/voice/ir) are tool inputs and are not part of the game files; all of them are made with ElevenLabs sound effects (tools/voice/ir/SOURCES.md), so no third-party recording is used.
 
-- Tiny Bedroom 2 by KenMix, https://freesound.org/s/645097/, licence CC0 1.0; original FLAC, 44.1 kHz stereo; used as the small wooden room of the present group (tools/voice/ir/small_wood_room.wav).
-- Tiny Bedroom 2 by KenMix, https://freesound.org/s/645097/, licence CC0 1.0; original FLAC, 44.1 kHz stereo; used as the small wooden room of the bestiary group (tools/voice/ir/wooden_hut.wav).
-- IR Bathroom (stereo) by Nox_Sound, https://freesound.org/s/585741/, licence CC0 1.0; original WAV, 48 kHz 24-bit stereo; used as the small hard room of the found group (tools/voice/ir/hard_small_room.wav).
-- IR Forest 5m (stereo) by Nox_Sound, https://freesound.org/s/558822/, licence CC0 1.0; original WAV, 96 kHz 24-bit stereo; used as the open air of the legend group (tools/voice/ir/open_jetty.wav).
-- IR Cathedral 5m (stereo) by Nox_Sound, https://freesound.org/s/648945/, licence CC0 1.0; original WAV, 96 kHz 24-bit stereo; used as the large space of the memory group (tools/voice/ir/large_space.wav).
+- Room of the bestiary group: ElevenLabs sound effects (ElevenLabs API, sound effects v2, pcm_44100), prompt "A single hand clap in a small hut of rough logs with furs on the walls, warm short decay, then silence, nothing else.", made 2026-10-15; take bestiary_take1_fitted (tools/voice/ir/choices.json).
+- Room of the chorus group: ElevenLabs sound effects (ElevenLabs API, sound effects v2, pcm_44100), prompt "One deep soft knock in a vast hollow space of nothing, an enormous slow tail that goes on and on, no music, nothing else.", made 2026-10-15; take chorus_take3_raw (tools/voice/ir/choices.json).
+- Room of the found group: ElevenLabs sound effects (ElevenLabs API, sound effects v2, pcm_44100), prompt "A single sharp knock of stone on stone inside a small empty stone hut, short hard reflections, then silence, nothing else.", made 2026-10-15; take found_take1_fitted (tools/voice/ir/choices.json).
+- Room of the legend group: ElevenLabs sound effects (ElevenLabs API, sound effects v2, pcm_44100), prompt "A single wooden clap on an open jetty at night over still water, open air, faint distant reflections, then silence, nothing else.", made 2026-10-15; take legend_take1_fitted (tools/voice/ir/choices.json).
+- Room of the memory group: ElevenLabs sound effects (ElevenLabs API, sound effects v2, pcm_44100), prompt "One deep hollow knock in an immense dark empty space, a long soft reverberant tail, no music, nothing else.", made 2026-10-15; take memory_take1_raw (tools/voice/ir/choices.json).
+- Room of the present group: ElevenLabs sound effects (ElevenLabs API, sound effects v2, pcm_44100), prompt "A single sharp hand clap in a small empty wooden cabin with a plank floor, natural short room reverb, then silence, nothing else.", made 2026-10-15; take present_take1_raw (tools/voice/ir/choices.json).
 
 All audio the game ships was made with ElevenLabs' AI services and levelled with this repository's own tools; every file is listed in a manifest with what made it:
 
