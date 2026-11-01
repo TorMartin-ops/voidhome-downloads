@@ -66,8 +66,8 @@ API counts as a lot of small ones.
 ## Keys
 
 - `K` opens Skills
-- Tap `G` for a perk action
-- Hold `G` for 0.6 seconds for the level 10 power
+- Tap `B` for a perk action
+- Hold `B` for 0.6 seconds for the level 10 power
 
 `/skyblock guide` gives you the guide book again, `/skyblock notes` explains
 your perks and `/skyblock rewards` shows rewards the team has not picked yet.
