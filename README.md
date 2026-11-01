@@ -54,13 +54,14 @@ More help: [portable pack](modpack/PORTABLE.md), [hosting a server](docs/HOSTING
 
 ## The mods in the pack
 
-The pack has ten mod files: Voidhome, Fabric API, Sodium, Lithium,
-FerriteCore, ImmediatelyFast, Entity Culling, AppleSkin, Jade and Shulker Box
-Tooltip. You only need the first two. The other eight are there for
-performance and for showing useful info.
+The pack has thirteen mod files: Voidhome, Fabric API, Sodium, Lithium,
+FerriteCore, ImmediatelyFast, Entity Culling, AppleSkin, Jade, Shulker Box
+Tooltip, JEI, its MezzConfig library and Mouse Tweaks. You only need the first
+two. The other eleven are there for performance, for showing useful info and
+for looking up recipes.
 
-Minecraft will say you have more than ten mods. That is normal, Fabric API
-counts as a lot of small ones.
+Minecraft will say you have more than thirteen mods. That is normal, Fabric
+API counts as a lot of small ones.
 
 ## Keys
 

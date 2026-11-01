@@ -1,12 +1,12 @@
 {
   "format": 1,
-  "generated": "2026-09-23T12:30:29Z",
-  "generator": "tools/modpack.py lock",
+  "generated": "2026-11-01T19:53:10Z",
+  "generator": "tools/modpack.py lock (4.1.1: only jei, mezzconfig, mouse-tweaks and lithium were taken from the run; every other pin is 2.8.4's)",
   "source": "https://api.modrinth.com/v2",
   "minecraft": "26.3",
   "loader": "fabric",
   "fabric_loader": "0.19.5",
-  "notes": "Curated for 2.8.4 without changing pinned versions or hashes. Client: core only, nine companions plus Voidhome. Server: default performance set, optional tooltip support.",
+  "notes": "Curated pack for Voidhome 4.1.1. Client: core only, twelve companions plus Voidhome (4.1.1: JEI with mezzconfig, Mouse Tweaks, Lithium 0.26.3). Server: default performance set, optional tooltip support.",
   "entries": [
     {
       "slug": "appleskin",
@@ -73,6 +73,7 @@
         "appleskin",
         "entityculling",
         "jade",
+        "mezzconfig",
         "shulkerboxtooltip"
       ],
       "roots": [
@@ -80,6 +81,7 @@
         "entityculling",
         "fabric-api",
         "jade",
+        "jei",
         "shulkerboxtooltip"
       ]
     },
@@ -150,17 +152,39 @@
       ]
     },
     {
+      "slug": "jei",
+      "title": "Just Enough Items (JEI)",
+      "project_id": "u6dRKJwZ",
+      "version_id": "Zebwcvua",
+      "version_number": "31.14.0.72",
+      "version_type": "release",
+      "filename": "jei-26.3-fabric-31.14.0.72.jar",
+      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/Zebwcvua/jei-26.3-fabric-31.14.0.72.jar",
+      "sha1": "7fdf21e3d04883b8930202b454e8cae0f89e9a6b",
+      "sha512": "5bbf0499207292d1e47fdc03139adec6dd90302b10648e7b283e4737631524d8c2b17ca9b7263b13f1fcdde9fd3f5867874b0a9c333c02bc55466dbbf8ce8ead",
+      "size": 2410982,
+      "side": "client",
+      "group": "core",
+      "prerelease": false,
+      "optional": false,
+      "explicit": true,
+      "required_by": [],
+      "roots": [
+        "jei"
+      ]
+    },
+    {
       "slug": "lithium",
       "title": "Lithium",
       "project_id": "gvQqBUqZ",
-      "version_id": "WXHRsMRl",
-      "version_number": "mc26.3-0.26.1-fabric",
+      "version_id": "fWv5bnZk",
+      "version_number": "mc26.3-0.26.3-fabric",
       "version_type": "release",
-      "filename": "lithium-fabric-0.26.1+mc26.3.jar",
-      "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/WXHRsMRl/lithium-fabric-0.26.1%2Bmc26.3.jar",
-      "sha1": "91e91c955650afaf98e4acebee060a58ac99ade5",
-      "sha512": "acbb9b037a203f005e03a20bf1d9866019384abb5ad27664808a12b919639a2501ecb52f8f0d77d27e1409935b0dbdbb70e01ac466480c0ae421ee403f649c59",
-      "size": 915429,
+      "filename": "lithium-fabric-0.26.3+mc26.3.jar",
+      "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/fWv5bnZk/lithium-fabric-0.26.3%2Bmc26.3.jar",
+      "sha1": "2d3afe9d43bb2549e23479d8d93e644ff366bebf",
+      "sha512": "2ca92fb530135d2baddf0ba4cc4f93976234876a38c4aa02b487b2552400f005afcfbeebf5373fb4396fe2020537a42d7597b8da5a52b904355ef51d5fef07ad",
+      "size": 919892,
       "side": "client",
       "group": "core",
       "prerelease": false,
@@ -169,6 +193,28 @@
       "required_by": [],
       "roots": [
         "lithium"
+      ]
+    },
+    {
+      "slug": "mouse-tweaks",
+      "title": "Mouse Tweaks",
+      "project_id": "aC3cM3Vq",
+      "version_id": "LeMuMhLv",
+      "version_number": "26.3-2.31-fabric",
+      "version_type": "release",
+      "filename": "MouseTweaks-fabric-mc26.3-2.31.jar",
+      "url": "https://cdn.modrinth.com/data/aC3cM3Vq/versions/LeMuMhLv/MouseTweaks-fabric-mc26.3-2.31.jar",
+      "sha1": "65c0f5588900e7ade476164ec4915bfab52c129a",
+      "sha512": "61c011308b5d1d0b2163473cbbc1ad0f1b3ac873b77e3e9ff67ccb437a946fbe5f34077281ebd2b91647324969d319f6499ac4b319cfcb9ea027bac47a52c081",
+      "size": 74569,
+      "side": "client",
+      "group": "core",
+      "prerelease": false,
+      "optional": false,
+      "explicit": true,
+      "required_by": [],
+      "roots": [
+        "mouse-tweaks"
       ]
     },
     {
@@ -216,6 +262,30 @@
       ]
     },
     {
+      "slug": "mezzconfig",
+      "title": "MezzConfig",
+      "project_id": "7tEfOcA7",
+      "version_id": "kWsxPwbN",
+      "version_number": "0.6.10",
+      "version_type": "beta",
+      "filename": "mezz_config-26.3-fabric-0.6.10.jar",
+      "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/kWsxPwbN/mezz_config-26.3-fabric-0.6.10.jar",
+      "sha1": "0d4e86a123c3a4810d43d4572b68c2607e17752b",
+      "sha512": "2077711375e15d72a442d6c4fb6ca198d6197fc10df577fdcfbbe95606862ce4f353944f63936744a75e36c3fac84109fcd70ac44cfe7cccc6685388ef13552b",
+      "size": 389573,
+      "side": "client",
+      "group": "core",
+      "prerelease": true,
+      "optional": false,
+      "explicit": false,
+      "required_by": [
+        "jei"
+      ],
+      "roots": [
+        "jei"
+      ]
+    },
+    {
       "slug": "appleskin",
       "title": "AppleSkin",
       "project_id": "EsAfCjCV",
@@ -257,12 +327,14 @@
       "required_by": [
         "appleskin",
         "jade",
+        "mezzconfig",
         "shulkerboxtooltip"
       ],
       "roots": [
         "appleskin",
         "fabric-api",
         "jade",
+        "jei",
         "shulkerboxtooltip"
       ]
     },
@@ -311,17 +383,39 @@
       ]
     },
     {
+      "slug": "jei",
+      "title": "Just Enough Items (JEI)",
+      "project_id": "u6dRKJwZ",
+      "version_id": "Zebwcvua",
+      "version_number": "31.14.0.72",
+      "version_type": "release",
+      "filename": "jei-26.3-fabric-31.14.0.72.jar",
+      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/Zebwcvua/jei-26.3-fabric-31.14.0.72.jar",
+      "sha1": "7fdf21e3d04883b8930202b454e8cae0f89e9a6b",
+      "sha512": "5bbf0499207292d1e47fdc03139adec6dd90302b10648e7b283e4737631524d8c2b17ca9b7263b13f1fcdde9fd3f5867874b0a9c333c02bc55466dbbf8ce8ead",
+      "size": 2410982,
+      "side": "server",
+      "group": "server",
+      "prerelease": false,
+      "optional": true,
+      "explicit": true,
+      "required_by": [],
+      "roots": [
+        "jei"
+      ]
+    },
+    {
       "slug": "lithium",
       "title": "Lithium",
       "project_id": "gvQqBUqZ",
-      "version_id": "WXHRsMRl",
-      "version_number": "mc26.3-0.26.1-fabric",
+      "version_id": "fWv5bnZk",
+      "version_number": "mc26.3-0.26.3-fabric",
       "version_type": "release",
-      "filename": "lithium-fabric-0.26.1+mc26.3.jar",
-      "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/WXHRsMRl/lithium-fabric-0.26.1%2Bmc26.3.jar",
-      "sha1": "91e91c955650afaf98e4acebee060a58ac99ade5",
-      "sha512": "acbb9b037a203f005e03a20bf1d9866019384abb5ad27664808a12b919639a2501ecb52f8f0d77d27e1409935b0dbdbb70e01ac466480c0ae421ee403f649c59",
-      "size": 915429,
+      "filename": "lithium-fabric-0.26.3+mc26.3.jar",
+      "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/fWv5bnZk/lithium-fabric-0.26.3%2Bmc26.3.jar",
+      "sha1": "2d3afe9d43bb2549e23479d8d93e644ff366bebf",
+      "sha512": "2ca92fb530135d2baddf0ba4cc4f93976234876a38c4aa02b487b2552400f005afcfbeebf5373fb4396fe2020537a42d7597b8da5a52b904355ef51d5fef07ad",
+      "size": 919892,
       "side": "server",
       "group": "server",
       "prerelease": false,
@@ -352,6 +446,30 @@
       "required_by": [],
       "roots": [
         "shulkerboxtooltip"
+      ]
+    },
+    {
+      "slug": "mezzconfig",
+      "title": "MezzConfig",
+      "project_id": "7tEfOcA7",
+      "version_id": "kWsxPwbN",
+      "version_number": "0.6.10",
+      "version_type": "beta",
+      "filename": "mezz_config-26.3-fabric-0.6.10.jar",
+      "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/kWsxPwbN/mezz_config-26.3-fabric-0.6.10.jar",
+      "sha1": "0d4e86a123c3a4810d43d4572b68c2607e17752b",
+      "sha512": "2077711375e15d72a442d6c4fb6ca198d6197fc10df577fdcfbbe95606862ce4f353944f63936744a75e36c3fac84109fcd70ac44cfe7cccc6685388ef13552b",
+      "size": 389573,
+      "side": "server",
+      "group": "server",
+      "prerelease": true,
+      "optional": true,
+      "explicit": false,
+      "required_by": [
+        "jei"
+      ],
+      "roots": [
+        "jei"
       ]
     }
   ],

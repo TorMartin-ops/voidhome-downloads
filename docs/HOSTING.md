@@ -6,16 +6,19 @@ A dedicated server keeps the world available while the host closes their game. L
 
 ## 1. Set up the server (host, once)
 
-You need Windows, about 4 GB of free RAM for the server, and the mod jar from the release. The script uses the Java 25 that comes with the Minecraft Launcher. If it can't find Java 25, install it with `winget install EclipseAdoptium.Temurin.25.JRE`.
+You need Windows, about 4 GB of free RAM for the server, and the `-server.zip` from the release. The setup and start scripts are for Windows (`setup-server.ps1`, `start.bat`). On macOS or Linux, run the Fabric server launcher yourself with the jars listed in `modpack\mods.lock.json`.
 
-1. Download and extract the `-server.zip` from the release. From its extracted folder,
-   run the setup script. Use a separate destination for the running server.
+The script uses the Java 25 that comes with the Minecraft Launcher. If it can't find Java 25, install it with `winget install EclipseAdoptium.Temurin.25.JRE`.
+
+1. Download the `-server.zip` from the [latest release](https://github.com/TorMartin-ops/voidhome-downloads/releases/latest) and extract it. Open a PowerShell window in the extracted folder (the one that holds the Voidhome jar and `server\`) and run the setup script. Use a separate folder for the running server, not the extracted one.
 
    ```powershell
-   powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server -ModJar voidhome-4.1.0.jar
+   powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server
    ```
 
-   - `-Include appleskin,jade,shulkerboxtooltip` adds server data for the included client information mods. Choose any of those names, or `all`.
+   The script uses the Voidhome jar from the extracted folder. To use another jar, add `-ModJar <path to the jar>`.
+
+   - `-Include appleskin,jade,shulkerboxtooltip,jei` adds server data for the included client mods (`jei` also adds its MezzConfig library; JEI wants to be on the server for its recipe sync, and a LAN host's own client already covers that). Choose any of those names, or `all`.
    - `-DryRun` only shows what the script would do.
 
    The script:
@@ -28,6 +31,8 @@ You need Windows, about 4 GB of free RAM for the server, and the mod jar from th
 3. Start the server by double-clicking `C:\mc\skyblock-server\start.bat`. The first start generates the skyblock world.
 4. In the server console, type `op <your name>`. Then type `whitelist add <name>` for each friend. Operators can always join and can use `/skyblock restart`. Everyone else needs to be on the whitelist.
 5. Join from the host PC: **Multiplayer > Add Server**, address `127.0.0.1`.
+
+**Why `server-ip=127.0.0.1`?** It makes the server listen on the host PC only. That is the safe default, and it is why a tunnel works: the playit.gg agent runs on the same PC and connects to `127.0.0.1`. A friend who types your LAN address, a router port forward or a VPN address is refused, because those reach the server from outside the PC. To allow them, open `server.properties` in the server folder, change `server-ip` (empty means every address) and restart the server. The setup script puts `127.0.0.1` back each time you run it, so change it again after an update. The whitelist still decides who may join.
 
 To stop the server, type `stop` in its console. Don't just close the window, or the last few minutes may not be saved.
 
@@ -52,8 +57,10 @@ Friends install the client mods with the same mod jar as the server. See [MODS.m
   2. Move the `world` folder away.
   3. Extract the zip into the server folder. It contains `world\`.
   4. Start the server.
+- **Automatic backups (singleplayer, LAN and servers):** the mod zips a Skyblock world when it opens and every 30 minutes while someone is online and the world changed, into `ultimateskyblock\backups\` under the game folder (`.minecraft` for singleplayer and LAN, the server folder on a server) as `auto-<world>-<date>-<time>.zip`. It keeps the newest 8 (and at most 2 GB in all) and deletes older automatic ones, never the ones you made with `/skyblock backup`. It tells the host in the game if one fails. Change it, or turn it off, with `autoBackupEnabled`, `autoBackupIntervalMinutes`, `autoBackupKeep` and `autoBackupMaxMegabytes` in `config\ultimateskyblock.json`.
+- **Restoring on singleplayer or LAN:** quit to the title screen, open the game folder's `saves` folder, move the world's folder away, and extract the zip into `saves` (the zip holds the world's own folder). Start the game and open the world.
 - **Backups from the game:** an operator types `/skyblock backup`. The mod saves and zips the world into `ultimateskyblock\backups\` while everyone keeps playing, and keeps the newest 10 of those zips.
 - **Starting a new run:** an operator types `/skyblock restart` in the game and confirms (or presses **Start run N+1** on the screen that appears when everyone is dead). The mod stops the server, and `start.ps1` starts it again. The mod then moves the old world into `world-archive\` and generates a fresh one. This only works when the server was started with `start.bat` or `start.ps1`. Add `sameseed` to replay the same world.
 - **Run history:** `/skyblock runs` lists the past runs and your bests. They are kept in `ultimateskyblock\runs.json`, outside the worlds.
 - **Crashes:** `start.bat -RestartOnCrash` also restarts the server after a crash. It gives up after 3 crashes in a row within 2 minutes of starting.
-- **Updating:** stop the server and run the setup script again with the new mod jar. It only replaces jars that it installed itself. Friends update with the client installer. A release that changes the balance version (2.1 does) replaces `config\ultimateskyblock.json` with the new defaults, so note any values you changed and set them again. A run in progress carries on after the update: skills start at level 0, and a run that began before 2.1 goes without pacts (Heat 0); the next run can seal them.
+- **Updating:** stop the server and run the setup script again with the new mod jar. It only replaces jars that it installed itself. Friends update with the client installer. A release that changes the config version (4.1 is version 19) saves your `config\ultimateskyblock.json` as a copy next to it and brings in the new defaults, so look at the copy for any values you changed and set them again. A world made in an older version carries on after the update; new options start at their defaults.

@@ -16,13 +16,13 @@
     Safe to run again, for example after a mod update.
 
 .PARAMETER Dir
-    The server folder. Pick one outside the repository, for example C:\mc\skyblock-server.
+    The server folder. Pick one outside the extracted zip, for example C:\mc\skyblock-server.
 
 .PARAMETER ModJar
-    Path to the Voidhome jar: build\libs\voidhome-<version>.jar.
+    Path to the Voidhome jar. Left out, the script uses the jar in the server zip (the folder above server\). From a checkout: build\libs\voidhome-<version>.jar.
 
 .PARAMETER Include
-    Optional server tooltip support: appleskin, jade, shulkerboxtooltip, or all.
+    Optional server support: appleskin, jade, shulkerboxtooltip, jei (with its MezzConfig library), or all.
     Example: -Include appleskin,jade
 
 .PARAMETER AcceptEula
@@ -35,7 +35,7 @@
     Only print what would happen. Nothing is downloaded or written.
 
 .EXAMPLE
-    powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server -ModJar build\libs\voidhome-4.1.0.jar -AcceptEula
+    powershell -ExecutionPolicy Bypass -File server\setup-server.ps1 -Dir C:\mc\skyblock-server -AcceptEula
 #>
 [CmdletBinding()]
 param(
@@ -282,7 +282,23 @@ if ($DryRun) { Write-Host 'DRY RUN: nothing will be downloaded or written.' -For
 
 if (-not $Dir) { Stop-Setup 'Pass -Dir <server folder>, for example -Dir C:\mc\skyblock-server' }
 $Dir = Resolve-FullPath $Dir
-if (-not $ModJar) { Stop-Setup 'Pass -ModJar <path to voidhome-<version>.jar>.' }
+if (-not $ModJar) {
+    # The server zip has the jar in its top folder, next to server\ (and docs\, modpack\). Look there, then beside this script. A checkout has none: pass -ModJar.
+    $besideScript = @()
+    foreach ($where in @($RepoRoot, $PSScriptRoot)) {
+        $besideScript += @(Get-ChildItem -LiteralPath $where -Filter '*.jar' -File -ErrorAction SilentlyContinue |
+            Where-Object { $_.Name -match '^(voidhome|ultimate-skyblock)-' -and $_.Name -notmatch '-sources\.jar$' })
+        if ($besideScript.Count -gt 0) { break }
+    }
+    if ($besideScript.Count -eq 1) {
+        $ModJar = $besideScript[0].FullName
+        Write-Host "Using the Voidhome jar $($besideScript[0].Name) from the server zip."
+    } elseif ($besideScript.Count -gt 1) {
+        Stop-Setup "Several Voidhome jars in the server zip folder; keep one or pass -ModJar: $(($besideScript | ForEach-Object Name) -join ', ')"
+    } else {
+        Stop-Setup 'No Voidhome jar next to this script. Run it from the extracted server zip, or pass -ModJar <path to voidhome-<version>.jar>.'
+    }
+}
 if (-not (Test-Path -LiteralPath $ModJar -PathType Leaf)) { Stop-Setup "Mod jar not found: $ModJar" }
 $ModJar = (Resolve-Path -LiteralPath $ModJar).ProviderPath
 $ModJarName = Split-Path -Leaf $ModJar
